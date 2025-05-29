@@ -1,0 +1,41 @@
+syntax = "proto3";
+option go_package = "./;masterapi";
+
+service MasterApi {
+    rpc RegisterWorker(RegisterWorkerRequest) returns (RegisterWorkerResponse);
+    rpc RequestTask(TaskRequest) returns (TaskResponse);
+    rpc ReportTaskStatus(TaskStatusReport) returns (TaskStatusAck);
+}
+
+message RegisterWorkerRequest {
+    string workerid = 1;
+    string workerport = 2;
+}
+
+message RegisterWorkerResponse {
+    bool success = 1;
+    string message = 2;
+}
+
+message TaskRequest {
+    string workerid = 1;
+}
+
+message TaskResponse {
+    string taskid = 1;
+    string tasktype = 2;
+    string inputpath = 3;
+    string outputdir = 4;
+    map<string, string> metadata = 5;
+}
+
+message TaskStatusReport {
+    string workerid = 1;
+    string taskid = 2;
+    bool success = 3;
+    string error = 4;
+}
+
+message TaskStatusAck {
+    bool success = 1;
+}
