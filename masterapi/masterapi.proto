@@ -34,6 +34,7 @@ message TaskStatusReport {
     string taskid = 2;
     bool success = 3;
     string error = 4;
+    map<string, string> intermediatefiles = 5;
 }
 
 message TaskStatusAck {
