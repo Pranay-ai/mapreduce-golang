@@ -7,11 +7,10 @@ import (
 )
 
 type WorkerInfo struct {
-	ID             string // Unique identifier for the worker
-	Address        string // Address of the worker node
-	Port           string // Port number for the worker node
-	Active         bool   // Indicates if the worker is currently active
-	TasksCompleted int    // Number of tasks completed by the worker
+	ID      string // Unique identifier for the worker
+	Address string // Address of the worker node
+	Port    string // Port number for the worker node
+	Active  bool   // Indicates if the worker is currently active
 }
 
 type ExecutionPhase int

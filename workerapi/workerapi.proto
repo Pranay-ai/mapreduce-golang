@@ -1,0 +1,15 @@
+syntax = "proto3";
+option go_package = "./;workerapi";
+
+service WorkerApi {
+    rpc HealthCheck(HealthCheckRequest) returns (HealthCheckResponse);
+}
+
+message HealthCheckRequest {
+
+}
+
+message HealthCheckResponse {
+    bool healthy = 1;
+    string message = 2;
+}
